@@ -1,3 +1,8 @@
+dfs - dynamic fs, or something.
+
+	Idea: support a bunch of network fs's etc, with the help of fuse. Also turn data stores into an fs, such as with redis.
+
+
 status:
 
 	bored-development:
