@@ -1,0 +1,38 @@
+status:
+
+	bored-development:
+
+		rfs works.. mount it to a directory, then mkdir, cat, echo, vim, rm, rmdir etc.. bare minimal support. I need to store files based on 'blocks', ie fixed size blocks in a redis hash, but I havn't gotten around to it.
+
+		I think I'd rather code this in go.
+
+
+launching:
+
+	make mount_rfs
+	make mount_redis
+	make mount_null
+	make unmount
+
+	DFS_TYPE={redis,rfs,null} ./dfs /tmp/dfs
+
+	DFS_TYPE's:
+
+		redis - redis integration into fs
+		rfs - fs that uses redis
+		logfs - logging filesystem
+		null - a somewhat normal fs
+
+
+
+todo:
+
+	Store data in fixed block sizes in redis.
+	Ability to Snapshot the current rfs instance -> Copy all keys to a new namespace, continue from there
+	Support more syscalls, fix symlinks
+	Consolodate redisCommand's into multi/redisAppend's etc.
+	Fix "redis" module, to support navigating a redis 'namespace' in the fuse fs.
+	Dynamic namespace configuration ability -> : vs , vs | etc.
+
+
+-- adarqui
